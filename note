@@ -1,0 +1,11 @@
+-- For Truncate
+
+ALTER TABLE advance_payments DROP FOREIGN KEY advance_payments_ibfk_1;
+
+
+TRUNCATE TABLE invoices;
+
+
+ALTER TABLE advance_payments 
+ADD CONSTRAINT advance_payments_ibfk_1 
+FOREIGN KEY (invoice_id) REFERENCES invoices(id);
